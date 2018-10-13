@@ -1,4 +1,10 @@
 from flask import Flask
+import pymongo
+import user
+
+client = pymongo.MongoClient("mongodb://localhost:27017/")
+
+db = client["blog_database"]
 
 app = Flask(__name__)
 
@@ -32,6 +38,11 @@ def user_blog(id):
     #check if published blog, display the blog
     return 'single_blog'
 
+
+user.login(db,{'username' : 'lo23432l', 'password' : '1234'}) 
+
 if __name__ == '__main__':
     app.run(debug = True)
+
+#give like and comment features as well
 
