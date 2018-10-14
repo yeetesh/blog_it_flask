@@ -28,4 +28,8 @@ def login(db,data):
     if sha256_crypt.verify(password, hashed_password) == True:
         print('Succesfully logged in')
 
+def all_users(db):
+    user = db['user']
+    return user.find()
+
 
